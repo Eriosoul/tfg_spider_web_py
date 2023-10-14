@@ -26,8 +26,15 @@ class ScrapWeb:
         try:
             link = self.url + self.after + modified_word + self.before
             print(link)
+            r: Response = requests.get(link)
+            if r.status_code == 200:
+                print("Obteniendo datos")
+            else:
+                print("Error con el servidor" ,r.status_code)
+            return link
         except Exception as e:
             print(e)
+            return None
 
 
 if __name__ == '__main__':
