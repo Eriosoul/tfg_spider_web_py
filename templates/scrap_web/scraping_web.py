@@ -38,6 +38,10 @@ class ScrapWeb:
                 print("Obteniendo datos")
                 soup = BeautifulSoup(r.content, "html.parser")
                 print(soup.contents)
+                print("Pruebas")
+                html = r.text
+                print(html)
+                print("=========================\n", r.json())
             else:
                 print("Error con el servidor" ,r.status_code)
             return link
@@ -45,26 +49,8 @@ class ScrapWeb:
             print(e)
             return None
 
-    # def similar(self, a, b):
-    #     return SequenceMatcher(None, a, b).ratio()
-    # def get_scrap_web(self, link):
-    #     try:
-    #         info = self.generate_link(link)
-    #         soup = BeautifulSoup("html.parser", info.text)
-    #         print(soup)
-    #     except Exception as e:
-    #         print(e)
-
 def main_scrap():
     time.sleep(1)
     s: ScrapWeb = ScrapWeb()
     add_word = s.check_status()
     s.generate_link(add_word)
-
-# if __name__ == '__main__':
-#     time.sleep(1)
-#     s: ScrapWeb = ScrapWeb()
-#     add_word = s.check_status()
-#     s.generate_link(add_word)
-#     similarity_ratio = s.similar("hello", "hella")
-#     print("Similarity ratio:", similarity_ratio)
