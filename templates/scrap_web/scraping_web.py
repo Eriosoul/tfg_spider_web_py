@@ -1,56 +1,53 @@
+import os
 import time
-# from difflib import SequenceMatcher
-
-import requests
-from requests import Response
-from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options
 from templates.send_world import SendWorld
+# Configurar opciones de Chrome
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
 
-class ScrapWeb:
-    def __init__(self):
-        self.url = 'https://tienda.consum.es/es/s/'
-        self.before = '?orderById=13&page=1'
-        self.main_instance = SendWorld()
-    def check_status(self):
-        time.sleep(1)
-        try:
-            r: Response = requests.get(self.url)
-            if r.status_code == 200:
-                # word = input("Introduzca la palabra que desea buscar: ")
-                word = self.main_instance.get_world()
-                modified_word = word.replace(' ', '%20')
-                print(modified_word)
-                return modified_word
-            else:
-                print(r.status_code)
-                return None
-        except Exception as e:
-            print("Error con el servidor", e)
-            return None
+# Obtén la ruta al directorio actual
+current_directory = os.path.dirname(os.path.realpath(__file__))
 
-    def generate_link(self, modified_word):
-        time.sleep(1)
-        try:
-            link = self.url + modified_word + self.before
-            print(link)
-            r: Response = requests.get(link)
-            if r.status_code == 200:
-                print("Obteniendo datos")
-                soup = BeautifulSoup(r.content, "html.parser")
-                print(soup.contents)
-                print("Pruebas")
-                html = r.text
-                print(html)
-                print("=========================\n", r.json())
-            else:
-                print("Error con el servidor" ,r.status_code)
-            return link
-        except Exception as e:
-            print(e)
-            return None
+# Construye la ruta al ejecutable de ChromeDriver
+chrome_path = r'E:\Deusto_Python\tfg_spider_web_py\templates\chromedriver_win32\chromedriver.exe'
+palabra = SendWorld()
+# Inicializar el driver de Selenium
+with webdriver.Chrome(service=ChromeService(chrome_path), options=chrome_options) as driver:
+    # Navegar a la URL
+    url = 'https://tienda.consum.es/es/'
+    driver.get(url)
 
-def main_scrap():
-    time.sleep(1)
-    s: ScrapWeb = ScrapWeb()
-    add_word = s.check_status()
-    s.generate_link(add_word)
+    # Esperar un momento para asegurar que la página se cargue completamente
+    time.sleep(5)
+
+    # Navegar a la página de cervezas
+    link2 = 'https://tienda.consum.es/es/s/'
+    url_cervezas = link2 + palabra.get_world()
+    driver.get(url_cervezas)
+
+    # Esperar un momento para que la página de cervezas se cargue completamente
+    time.sleep(5)
+
+    # Obtener el contenido de la página después de cargar el contenido dinámico
+    page_content = driver.page_source
+
+    # Imprimir el contenido de la página
+    print("Contenido de la página de cervezas:")
+    # print(page_content)  # Comentar para no imprimir toda la página
+
+    # Obtener el nombre y el precio de cada cerveza
+    brand_spans = driver.find_elements("css selector", "span#grid-widget--brand")
+    price_spans = driver.find_elements("css selector", "span#grid-widget--price")
+
+    # Iterar sobre las cervezas y mostrar el nombre y el precio
+    for brand, price in zip(brand_spans, price_spans):
+        print("Nombre:", brand.text)
+        print("Precio:", price.text)
+        print("--------------------")
+
+    time.sleep(5)
