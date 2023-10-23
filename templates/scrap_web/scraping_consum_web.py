@@ -93,6 +93,15 @@ class ConsumWeb:
                 print("--------------------")
 
             time.sleep(5)
+def main():
+    try:
+        c = ConsumWeb()
+        data = c.cheking_driver()
+        c.next_step(data)
+    except Exception as e:
+        print("Error:", e)
+
+
     # @staticmethod
     # def print_cervezas_info(brand_spans, price_spans):
     #     # Iterar sobre las cervezas y mostrar el nombre y el precio
@@ -118,11 +127,3 @@ class ConsumWeb:
     #
     #         self.print_cervezas_info(brand_spans, price_spans)
     #         time.sleep(5)
-
-def main():
-    try:
-        c = ConsumWeb()
-        data = c.cheking_driver()
-        c.next_step(data)
-    except Exception as e:
-        print("Error:", e)
