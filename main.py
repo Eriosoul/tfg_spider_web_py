@@ -1,4 +1,4 @@
-from templates.scrap_web.scraping_web import main_scrap
+from templates.scrap_web import scraping_consum_web
 
 if __name__ == '__main__':
-    main_scrap()
+    scraping_consum_web.main()
