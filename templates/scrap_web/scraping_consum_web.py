@@ -9,7 +9,7 @@ from templates.chromedriver_win32.obten_path import GetPathDriver
 
 
 class ConsumWeb:
-    def __init__(self, palabra):
+    def __init__(self, search_word):
         # Configurar opciones de Chrome
         self.chrome_options = Options()
         self.chrome_options.add_argument('--headless')
@@ -23,7 +23,7 @@ class ConsumWeb:
         # self.word = SendWorld()
         # palabra_obtenida = self.word.obtener_palabra(self.word)
         # print("Palabra obtenida:", palabra_obtenida)
-        self.palabra = palabra
+        self.word = search_word
         self.data = []
     def cheking_driver(self):
         try:
@@ -47,7 +47,7 @@ class ConsumWeb:
             print("Error con Consum URL:", e)
             raise e
     def check_word(self):
-        word = self.palabra.replace(" ", "%20")  # Reemplazar espacios en blanco con '%20'
+        word = self.word.replace(" ", "%20")  # Reemplazar espacios en blanco con '%20'
         return word
     def navigate_to_cervezas(self, driver):
         # Navegar a la página de de la busqueda
@@ -110,9 +110,9 @@ class ConsumWeb:
     def save_data_to_json(self, file_path):
         with open(file_path, 'w') as json_file:
             json.dump(self.data, json_file, indent=2)
-def main_consum(palabra):
+def main_consum(search_word):
     try:
-        c = ConsumWeb(palabra)
+        c = ConsumWeb(search_word)
         data = c.cheking_driver()
         c.next_step(data)
         c.save_data_to_json('consum.json')

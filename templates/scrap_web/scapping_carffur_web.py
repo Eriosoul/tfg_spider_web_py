@@ -8,7 +8,7 @@ from templates.chromedriver_win32.obten_path import GetPathDriver
 
 
 class CarrefourWeb:
-    def __init__(self, palabra):
+    def __init__(self, search_word):
         # Configurar opciones de Chrome
         self.chrome_options = Options()
         self.chrome_options.add_argument('--headless')
@@ -19,7 +19,7 @@ class CarrefourWeb:
         # self.current_directory = os.path.dirname(os.path.realpath(__file__))
         self.chrom_driver_path = GetPathDriver()
         # Obtener la palabra
-        self.word = palabra
+        self.word = search_word
         self.data = []
 
     def cheking_driver(self):
@@ -104,9 +104,9 @@ class CarrefourWeb:
         with open(file_path, 'w') as json_file:
             json.dump(self.data, json_file, indent=2)
 
-def main_carrefour(palabra):
+def main_carrefour(search_word):
     try:
-        c = CarrefourWeb(palabra)
+        c = CarrefourWeb(search_word)
         data = c.cheking_driver()
         c.next_step(data)
         c.save_data_to_json('carrefour.json')

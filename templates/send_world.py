@@ -4,8 +4,8 @@ class SendWorld:
 
     def get_world(self):
         self.world: str = input("Introduce el producto que deseas buscar: ")
-        palabra = self.world
-        return palabra
+        search_word = self.world
+        return search_word
 
-    def obtener_palabra(self, palabra):
-        return palabra
+    def obtener_palabra(self, search_word):
+        return search_word

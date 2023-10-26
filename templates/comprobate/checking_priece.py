@@ -1,11 +1,15 @@
 import json
 from difflib import SequenceMatcher
+from get_json_data import GetPathJson
 
 
 class DiferenceByProduct:
     def __init__(self):
-        self.consum = 'E:/Deusto_Python/tfg_spider_web_py/consum.json'
-        self.carrefour = 'E:/Deusto_Python/tfg_spider_web_py/carrefour.json'
+        # self.consum = 'Deusto_Python/tfg_spider_web_py/consum.json'
+        self.get_json_paths = GetPathJson()  # Crea una instancia de GetPathJson
+        self.consum, self.carrefour = self.get_json_paths.driver_path()
+        print(self.consum)
+        print(self.carrefour)
 
     def data_json_consum(self):
         print("Comrpobando datos recopilado de Carrefour...")
