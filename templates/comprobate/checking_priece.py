@@ -8,25 +8,22 @@ class DiferenceByProduct:
         self.carrefour = 'E:/Deusto_Python/tfg_spider_web_py/carrefour.json'
 
     def data_json_consum(self):
-        with open(self.consum) as file:
-            data_consum = json.load(file)
-            if data_consum is not None:
-                print("Data exists!")
+        print("Comrpobando datos recopilado de Carrefour...")
+        try:
+            with open(self.consum) as file:
+                data_consum = json.load(file)
                 return data_consum
-            else:
-                print("Data does not exist.")
-                return []
+        except FileNotFoundError:
+            return []
 
     def data_json_carrefour(self):
-        with open(self.carrefour) as file:
-            data_carrefour = json.load(file)
-            if data_carrefour is not None:
-                print("Data exists!")
+        print("Comrpobando datos recopilado de Carrefour...")
+        try:
+            with open(self.carrefour) as file:
+                data_carrefour = json.load(file)
                 return data_carrefour
-            else:
-                print("Data does not exist.")
-                return []
-
+        except FileNotFoundError:
+            return []
     def similar(self, data_consum, data_carrefour):
         similarities = []
 
@@ -40,15 +37,26 @@ class DiferenceByProduct:
         return similarities
 
 
-if __name__ == '__main__':
+def main_comparation():
     d = DiferenceByProduct()
     data_consum = d.data_json_consum()
     data_carrefour = d.data_json_carrefour()
 
     similarities = d.similar(data_consum, data_carrefour)
-
+    print("Mostrando todos los productos: ")
     for consum_product, carrefour_product, similarity in similarities:
         print(f'Similarity: {similarity:.2f}')
+        print(f'Consum Product: {consum_product["Informacion"]} - {consum_product["Precio"]}')
+        print(f'Carrefour Product: {carrefour_product["Nombre"]} - {carrefour_product["Precio"]}')
+        print("--------------------")
+
+    print("Mayor similitud: ")
+    # Ordena las similitudes por similitud en orden descendente.
+    similarities.sort(key=lambda x: x[2], reverse=True)
+
+    # Imprime los 4 pares con la mayor similitud.
+    for i, (consum_product, carrefour_product, similarity) in enumerate(similarities[:4]):
+        print(f'Similarity {i + 1}: {similarity:.2f}')
         print(f'Consum Product: {consum_product["Informacion"]} - {consum_product["Precio"]}')
         print(f'Carrefour Product: {carrefour_product["Nombre"]} - {carrefour_product["Precio"]}')
         print("--------------------")
