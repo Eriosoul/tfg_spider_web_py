@@ -1,8 +1,122 @@
 [
   {
-    "Nombre": "GREFUSA",
-    "Informacion": "Pipas G Tijuana Bolsa 165 Gr",
+    "Nombre": "MILKA",
+    "Informacion": "Chocolate Relleno Caramelo 100 Gr",
     "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "1,30\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Chocolate con Leche 270 Gr",
+    "Precio_l_kg": " 13,00\u00a0\u20ac / 1 Kg ",
+    "Precio": "2,35\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Chocolate Relleno Caramelo  y Avellana 300 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "3,39\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Chocolate con Chips Ahoy 100 Gr",
+    "Precio_l_kg": " 8,70\u00a0\u20ac / 1 Kg ",
+    "Precio": "1,30\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Chocolate con Oreo 300 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "2,95\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Chocolate Almendras Enteras 270 Gr",
+    "Precio_l_kg": " 11,30\u00a0\u20ac / 1 Kg ",
+    "Precio": "3,39\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Chocolate con Oreo 100 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "1,30\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Chocolate Blanco con Galleta Oreo 100 Gr",
+    "Precio_l_kg": " 13,00\u00a0\u20ac / 1 Kg ",
+    "Precio": "1,45\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Chocoswing Galleta 300 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "2,95\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Galleta Sandwich Choco Pause 260 Gr",
+    "Precio_l_kg": " 9,83\u00a0\u20ac / 1 Kg ",
+    "Precio": "2,69\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Galleta Cookies Rellena Sensations 156 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "2,69\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Sticks de Galleta Cubiertas de Chocolate 112 Gr",
+    "Precio_l_kg": " 12,56\u00a0\u20ac / 1 Kg ",
     "Precio": "1,50\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Galleta Chocobiscuit 150 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "2,35\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Galleta Mini Cookies 110 Gr",
+    "Precio_l_kg": " 13,00\u00a0\u20ac / 1 Kg ",
+    "Precio": "1,59\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Galleta Choco Finas 126 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "1,75\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Pastelito Choc & Choc 175 Gr",
+    "Precio_l_kg": " 14,50\u00a0\u20ac / 1 Kg ",
+    "Precio": "2,65\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Galleta Mini Wafers 110 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "1,95\u00a0\u20ac"
+  },
+  {
+    "Nombre": "MILKA",
+    "Informacion": "Bizcocho Cake&choc Relleno de Chocolate 5 U 175 Gr",
+    "Precio_l_kg": " 9,83\u00a0\u20ac / 1 Kg ",
+    "Precio": "2,80\u00a0\u20ac"
+  },
+  {
+    "Nombre": "ROYAL",
+    "Informacion": "Tarta Chocolate Milka 350 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "4,49\u00a0\u20ac"
+  },
+  {
+    "Nombre": "OREO",
+    "Informacion": "S\u00e1ndwich Stick Oreo y Chocolate Milka 204 Gr",
+    "Precio_l_kg": " 10,35\u00a0\u20ac / 1 Kg ",
+    "Precio": "4,99\u00a0\u20ac"
   }
 ]

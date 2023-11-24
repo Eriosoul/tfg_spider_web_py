@@ -3,9 +3,20 @@ class SendWorld:
         self.world: str = ""
 
     def get_world(self):
-        self.world: str = input("Introduce el producto que deseas buscar: ")
-        search_word = self.world
-        return search_word
+        # se solicita la palabra solo una vez y se guarda, despues procede a utilizar dicha palabra
+        while True: # hacemos un bucle while true para que hata no s eintroduzca la palabra que no empiece el scraping
 
-    def obtener_palabra(self, search_word):
-        return search_word
+            self.world = input("Introduce el producto que deseas buscar: ")
+            try:
+                # comprobamos si hay palabra y si no son solo numeros
+                if not self.world or self.world.isdigit():
+                    # nostramos el error para que vuelva a intoducir lo que quiere buscar
+                    print("Debe introducir el producto que desea buscar.")
+                else:
+                    return self.world
+            except Exception as e:
+                print("Error: ", e)
+                return None
+
+    # def obtener_palabra(self, search_word):
+    #     return search_word

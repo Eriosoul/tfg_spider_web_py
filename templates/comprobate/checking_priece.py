@@ -12,6 +12,7 @@ class DiferenceByProduct:
         print(self.carrefour)
 
     def data_json_consum(self):
+        # comprobamos datos en el fichero json
         print("Comrpobando datos recopilado de Carrefour...")
         try:
             with open(self.consum) as file:
@@ -21,6 +22,7 @@ class DiferenceByProduct:
             return []
 
     def data_json_carrefour(self):
+        # comprobamos datos en el fichero json
         print("Comrpobando datos recopilado de Carrefour...")
         try:
             with open(self.carrefour) as file:
@@ -29,13 +31,15 @@ class DiferenceByProduct:
         except FileNotFoundError:
             return []
     def similar(self, data_consum, data_carrefour):
+        # se crea un lista
         similarities = []
-
+        # for anidados para obtener los items/productos del json
         for consum_product in data_consum:
             for carrefour_product in data_carrefour:
+                # se compruba el ratio de los datos obtenidos en el for y se comprueba su similitud
                 similarity = SequenceMatcher(None, consum_product["Informacion"], carrefour_product["Nombre"]).ratio()
                 similarities.append((consum_product, carrefour_product, similarity))
-
+        # tras la calculacion de la similitud se ordena en funcion del valor de similitud
         similarities.sort(key=lambda x: x[2], reverse=True)
 
         return similarities
