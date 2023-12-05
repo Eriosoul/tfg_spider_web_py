@@ -1,6 +1,7 @@
 import os
 import json
 import time
+from tqdm import tqdm
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -27,7 +28,9 @@ class CarrefourWeb:
 
     def cheking_driver(self):
         try:
-            print(f"La ruta es: {self.chrom_driver_path.driver_path()}")
+            for _ in tqdm(range(10), desc="Checking chrome data driver ...", unit="iter"):
+                # Simula la ejecución de la función (reemplaza esto con tu lógica real)
+                time.sleep(0.1)
             # Construye la ruta al ejecutable de ChromeDriver
             # chrome_path = r'E:\Deusto_Python\tfg_spider_web_py\templates\chromedriver_win32\chromedriver.exe'
             chrome_path = self.chrom_driver_path.driver_path()
@@ -58,7 +61,6 @@ class CarrefourWeb:
             # se crea el nuevo link con la palabra ya modificada "chocolate+milka"
             link2 = self.generate_link
             url_search = link2 + self.check_word()
-            print(url_search)
             driver.get(url_search)
             time.sleep(5)
         except Exception as e:

@@ -1,0 +1,44 @@
+[
+  {
+    "Nombre": "CONSUM",
+    "Informacion": "Preparado Picada de Vacuno 400 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "3,45\u00a0\u20ac"
+  },
+  {
+    "Nombre": "CONSUM",
+    "Informacion": "Preparado Picada de Cerdo 400 Gr",
+    "Precio_l_kg": " 8,63\u00a0\u20ac / 1 Kg ",
+    "Precio": "2,55\u00a0\u20ac"
+  },
+  {
+    "Nombre": "CONSUM",
+    "Informacion": "Preparado Picada Mixta 400 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "3,05\u00a0\u20ac"
+  },
+  {
+    "Nombre": "CONSUM",
+    "Informacion": "Preparado Picada Pollo 400 Gr",
+    "Precio_l_kg": " 6,38\u00a0\u20ac / 1 Kg ",
+    "Precio": "3,65\u00a0\u20ac"
+  },
+  {
+    "Nombre": "CONSUM",
+    "Informacion": "Preparado Picada Mixta Bolo\u00f1esa 250 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "2,85\u00a0\u20ac"
+  },
+  {
+    "Nombre": "CONSUM",
+    "Informacion": "Preparado Picada Mixta 250 Gr",
+    "Precio_l_kg": " 7,63\u00a0\u20ac / 1 Kg ",
+    "Precio": "2,85\u00a0\u20ac"
+  },
+  {
+    "Nombre": "CONSUM",
+    "Informacion": "Bolitas de Carne Cerdo y Ternera 225 Gr",
+    "Precio_l_kg": "Pedido m\u00ednimo: 1 1 Kg ",
+    "Precio": "2,85\u00a0\u20ac"
+  }
+]

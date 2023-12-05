@@ -1,7 +1,7 @@
 import os
 import json
 import time
-# from tqdm import tqdm
+from tqdm import tqdm
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -26,7 +26,9 @@ class ConsumWeb:
         self.data = []
     def cheking_driver(self):
         try:
-            print(f"La ruta es: {self.chrom_driver_path.driver_path()}")
+            for _ in tqdm(range(10), desc="Checking chrome data driver ...", unit="iter"):
+                # Simula la ejecución de la función (reemplaza esto con tu lógica real)
+                time.sleep(0.1)
             chrome_path = self.chrom_driver_path.driver_path()
             return chrome_path
         except Exception as e:
@@ -34,6 +36,9 @@ class ConsumWeb:
 
 
     def navigate_to_consum_web(self, driver):
+        for _ in tqdm(range(10), desc="Checking chrome data driver ...", unit="iter"):
+            # Simula la ejecución de la función (reemplaza esto con tu lógica real)
+            time.sleep(0.1)
         print("Comprobando estado con servidor...")
         try:
             url = self.second_link_check
@@ -46,11 +51,13 @@ class ConsumWeb:
         word = self.word.replace(" ", "%20")
         return word
     def navigate_to_cervezas(self, driver):
+        for _ in tqdm(range(10), desc="Checking chrome data driver ...", unit="iter"):
+            # Simula la ejecución de la función (reemplaza esto con tu lógica real)
+            time.sleep(0.1)
         print("Creando nuevo link de busqueda... ")
         try:
             link2 = self.generate_second_link
             url_search = link2 + self.check_word()
-            print(url_search)
             driver.get(url_search)
             time.sleep(5)
         except Exception as e:

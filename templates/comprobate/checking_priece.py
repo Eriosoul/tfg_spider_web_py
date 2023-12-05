@@ -51,12 +51,12 @@ def main_comparation():
     data_carrefour = d.data_json_carrefour()
 
     similarities = d.similar(data_consum, data_carrefour)
-    print("Mostrando todos los productos: ")
-    for consum_product, carrefour_product, similarity in similarities:
-        print(f'Similarity: {similarity:.2f}')
-        print(f'Consum Product: {consum_product["Informacion"]} - {consum_product["Precio"]}')
-        print(f'Carrefour Product: {carrefour_product["Nombre"]} - {carrefour_product["Precio"]}')
-        print("--------------------")
+    # print("Mostrando todos los productos: ")
+    # for consum_product, carrefour_product, similarity in similarities:
+    #     print(f'Similarity: {similarity:.2f}')
+    #     print(f'Consum Product: {consum_product["Informacion"]} - {consum_product["Precio"]}')
+    #     print(f'Carrefour Product: {carrefour_product["Nombre"]} - {carrefour_product["Precio"]}')
+    #     print("--------------------")
 
     print("Mayor similitud: ")
     # Ordena las similitudes por similitud en orden descendente.
