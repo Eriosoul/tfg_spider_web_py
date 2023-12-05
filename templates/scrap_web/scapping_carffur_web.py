@@ -1,5 +1,7 @@
+import os
 import json
 import time
+from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -9,6 +11,7 @@ from templates.chromedriver_win32.obten_path import GetPathDriver
 
 class CarrefourWeb:
     def __init__(self, search_word):
+        load_dotenv()
         # Configurar opciones de Chrome
         self.chrome_options = Options()
         self.chrome_options.add_argument('--headless')
@@ -17,6 +20,8 @@ class CarrefourWeb:
         # obtenemos la ruta del driver
         self.chrom_driver_path = GetPathDriver()
         # Obtener la palabra
+        self.link_check = os.getenv("FIRST_LINK_CHECK")
+        self.generate_link = os.getenv("FIRST_LINK")
         self.word = search_word
         self.data = []
 
@@ -31,12 +36,11 @@ class CarrefourWeb:
             print("Error al comprobar los drivers: ",e)
 
 
-    @staticmethod
-    def navigate_to_carrefour(driver):
+    def navigate_to_carrefour(self,driver):
         print("Comprobando estado cons ervidor de carrefour...")
         try:
             # comprobacion con la web oficial para saber si no esta caida
-            url = 'https://www.carrefour.es/'
+            url = self.link_check
             driver.get(url)
             time.sleep(5)
         except Exception as e:
@@ -52,7 +56,7 @@ class CarrefourWeb:
         print("Creando nuevo link de busqueda... ")
         try:
             # se crea el nuevo link con la palabra ya modificada "chocolate+milka"
-            link2 = 'https://www.carrefour.es/?q='
+            link2 = self.generate_link
             url_search = link2 + self.check_word()
             print(url_search)
             driver.get(url_search)

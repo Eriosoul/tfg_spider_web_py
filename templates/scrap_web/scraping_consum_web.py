@@ -1,15 +1,18 @@
+import os
 import json
 import time
+# from tqdm import tqdm
+from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
-# from templates.send_world import SendWorld
 from templates.chromedriver_win32.obten_path import GetPathDriver
 
 
 class ConsumWeb:
     def __init__(self, search_word):
+        load_dotenv()
         # Configurar opciones de Chrome
         self.chrome_options = Options()
         self.chrome_options.add_argument('--headless')
@@ -17,7 +20,8 @@ class ConsumWeb:
         self.chrome_options.add_argument('--disable-dev-shm-usage')
 
         self.chrom_driver_path = GetPathDriver()
-
+        self.second_link_check = os.getenv("SECOND_LINK_CHECK")
+        self.generate_second_link = os.getenv("SECOND_LINK")
         self.word = search_word
         self.data = []
     def cheking_driver(self):
@@ -28,11 +32,11 @@ class ConsumWeb:
         except Exception as e:
             print("Error al comprobar los drivers: ",e)
 
-    @staticmethod
-    def navigate_to_consum_web(driver):
+
+    def navigate_to_consum_web(self, driver):
         print("Comprobando estado con servidor...")
         try:
-            url = 'https://tienda.consum.es/es/'
+            url = self.second_link_check
             driver.get(url)
             time.sleep(5)
         except Exception as e:
@@ -44,7 +48,7 @@ class ConsumWeb:
     def navigate_to_cervezas(self, driver):
         print("Creando nuevo link de busqueda... ")
         try:
-            link2 = 'https://tienda.consum.es/es/s/'
+            link2 = self.generate_second_link
             url_search = link2 + self.check_word()
             print(url_search)
             driver.get(url_search)
